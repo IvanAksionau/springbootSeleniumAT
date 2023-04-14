@@ -1,7 +1,7 @@
-package com.ea.SpringBasic;
+package com.ea.springbasic;
 
-import com.ea.SpringBasic.pages.MainPage;
-import com.ea.SpringBasic.pages.MainPage2;
+import com.ea.springbasic.pages.MainPage;
+import com.ea.springbasic.pages.MainPage2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

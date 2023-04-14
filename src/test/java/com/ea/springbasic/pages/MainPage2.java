@@ -1,4 +1,4 @@
-package com.ea.SpringBasic.pages;
+package com.ea.springbasic.pages;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
