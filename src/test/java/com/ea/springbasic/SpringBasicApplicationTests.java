@@ -1,6 +1,5 @@
 package com.ea.springbasic;
 
-import com.ea.springbasic.pages.MainPage;
 import com.ea.springbasic.pages.MainPage2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +15,6 @@ import java.util.List;
 class SpringBasicApplicationTests {
 
     @Autowired
-    private MainPage mainPage;
-
-    @Autowired
     private MainPage2 mainPage2;
 
     /**
@@ -32,9 +28,8 @@ class SpringBasicApplicationTests {
     private List<String> users;
 
     @Test
-    void contextLoads() {
+    void performLoginTest() {
         System.out.println(appUrl);
-        mainPage.PerformLogin();
-        mainPage2.PerformLogin();
+        mainPage2.performLogin().closeBrowser();
     }
 }

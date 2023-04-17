@@ -7,23 +7,19 @@ import org.openqa.selenium.support.How;
 import org.springframework.stereotype.Component;
 
 @Component
-public class HomePage {
+public class HomePage extends BasePage {
 
     @FindBy(how = How.LINK_TEXT, using = "Login")
     public WebElement lnkLogin;
     @FindBy(how = How.LINK_TEXT, using = "Employee List")
     public WebElement lnkEmployeeList;
 
-    public HomePage() {
-        System.out.println("In Home Page");
-    }
-
-    public LoginPage ClickLogin() {
+    public LoginPage clickLogin() {
         System.out.println("Click the home page login");
         return new LoginPage();
     }
 
-    public void ClickEmployeeList() {
+    public void clickEmployeeList() {
         lnkEmployeeList.click();
     }
 }
