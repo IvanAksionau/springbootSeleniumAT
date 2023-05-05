@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="search-module" parallel="tests">
+    <test name="springTestNGTest">
+        <parameter name="keyword" value="java"/>
+        <classes>
+            <class name="com.ea.springbasic.SpringTestNGTest"/>
+        </classes>
+    </test>
+
+</suite>

@@ -21,7 +21,6 @@ public class MainPage2 extends BasePage {
     private String appUrl;
 
     public MainPage2 performLogin() {
-        webDriver.navigate().to(appUrl);
         loginPage.login("admin", "admin");
         System.out.println("Login:" + appUrl);
         return this;
