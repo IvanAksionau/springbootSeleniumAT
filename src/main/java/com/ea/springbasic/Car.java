@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class Car {
 
     public Car() {
-        System.out.println("Car instantiated");
+//        System.out.println("Car instantiated");
     }
 
     public void getCar() {

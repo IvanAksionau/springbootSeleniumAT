@@ -1,4 +1,4 @@
-package com.ea.springbasic;
+package com.ea.springbasic.test;
 
 import com.ea.springbasic.pages.MainPage2;
 import org.junit.jupiter.api.Test;

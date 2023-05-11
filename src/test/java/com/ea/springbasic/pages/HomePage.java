@@ -11,15 +11,23 @@ public class HomePage extends BasePage {
 
     @FindBy(how = How.LINK_TEXT, using = "Login")
     public WebElement lnkLogin;
+
     @FindBy(how = How.LINK_TEXT, using = "Employee List")
     public WebElement lnkEmployeeList;
 
+    @FindBy(how = How.LINK_TEXT, using = "Employee Details")
+    WebElement lnkEmployeeDetails;
+
     public LoginPage clickLogin() {
-        System.out.println("Click the home page login");
+        lnkLogin.click();
         return new LoginPage();
     }
 
-    public void clickEmployeeList() {
+    public void ClickEmployeeList() {
         lnkEmployeeList.click();
+    }
+
+    public boolean isEmployeeDetailsExist() {
+        return lnkEmployeeDetails.isDisplayed();
     }
 }

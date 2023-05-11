@@ -25,7 +25,7 @@ public class WebDriverLibrary {
     @Bean
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     WebDriver getFirefoxDriver() {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.firefoxdriver().browserVersion("113.0").setup();
         FirefoxOptions options = new FirefoxOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");

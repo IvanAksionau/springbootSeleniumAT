@@ -21,12 +21,9 @@ public class MainPage2 extends BasePage {
     private String appUrl;
 
     public MainPage2 performLogin() {
-        loginPage.login("admin", "admin");
+        homePage.clickLogin();
+        loginPage.login("admin", "password");
         System.out.println("Login:" + appUrl);
         return this;
-    }
-
-    public void closeBrowser() {
-        webDriver.quit();
     }
 }

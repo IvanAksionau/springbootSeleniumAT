@@ -17,13 +17,13 @@
 
     <properties>
         <java.version>17</java.version>
-        <selenium-java.version>4.9.0</selenium-java.version>
+        <selenium-java.version>4.8.3</selenium-java.version>
         <selenium-webdrivermanager.version>5.3.2</selenium-webdrivermanager.version>
         <testng.version>7.7.0</testng.version>
         <httpcore.version>4.4.16</httpcore.version>
         <httpclient.version>4.5.6</httpclient.version>
-        <cucumber-java.version>7.11.2</cucumber-java.version>
-        <cucumber-spring.version>2.1.0</cucumber-spring.version>
+        <cucumber-java.version>6.9.1</cucumber-java.version>
+        <cucumber-spring.version>6.9.1</cucumber-spring.version>
         <httpclient5.version>5.2.1</httpclient5.version>
     </properties>
 
@@ -34,7 +34,6 @@
             <artifactId>spring-boot-starter</artifactId>
             <groupId>org.springframework.boot</groupId>
         </dependency>
-
         <dependency>
             <artifactId>lombok</artifactId>
             <groupId>org.projectlombok</groupId>
@@ -76,19 +75,16 @@
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-spring -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-spring</artifactId>
             <version>${cucumber-spring.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber-java.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-testng</artifactId>
@@ -96,7 +92,6 @@
         </dependency>
 
     </dependencies>
-
 
     <build>
         <plugins>
@@ -108,28 +103,12 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
-
                 <configuration>
                     <includes>
-                        <include>com.ea.springbasic.SpringTestNGTest</include>
+                        <include>com.ea.springbasic.test.SpringTestNGTest</include>
                     </includes>
                 </configuration>
-
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <excludes>-->
-<!--                        <exclude>-->
-<!--                            <artifactId>lombok</artifactId>-->
-<!--                            <groupId>org.projectlombok</groupId>-->
-<!--                        </exclude>-->
-<!--                    </excludes>-->
-<!--                </configuration>-->
-<!--                -->
-<!--            </plugin>-->
-
         </plugins>
     </build>
 

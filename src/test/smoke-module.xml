@@ -3,7 +3,7 @@
     <test name="springTestNGTest">
         <parameter name="keyword" value="java"/>
         <classes>
-            <class name="com.ea.springbasic.SpringTestNGTest"/>
+            <class name="com.ea.springbasic.test.SpringTestNGTest"/>
         </classes>
     </test>
 
