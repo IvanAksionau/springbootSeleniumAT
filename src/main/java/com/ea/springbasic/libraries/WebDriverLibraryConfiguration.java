@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class WebDriverLibrary {
+public class WebDriverLibraryConfiguration {
 
     @Bean
     @ConditionalOnProperty(name = "browser", havingValue = "chrome")
