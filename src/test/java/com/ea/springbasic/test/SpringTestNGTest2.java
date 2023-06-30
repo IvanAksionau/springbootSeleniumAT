@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 @SpringBootTest
-public class SpringTestNGTest extends AbstractTestNGSpringContextTests {
+public class SpringTestNGTest2 extends AbstractTestNGSpringContextTests {
 
     @Autowired
     protected WebDriver webDriver;
@@ -33,7 +35,7 @@ public class SpringTestNGTest extends AbstractTestNGSpringContextTests {
     }
 
     @Test
-    public void test() {
+    public void test2() {
         mainPage2.performLogin().closeBrowser();
     }
 }

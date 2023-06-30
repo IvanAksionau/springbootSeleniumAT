@@ -6,5 +6,16 @@
             <class name="com.ea.springbasic.test.SpringTestNGTest"/>
         </classes>
     </test>
-
+    <test name="springTestNGTest2">
+        <parameter name="keyword" value="java"/>
+        <classes>
+            <class name="com.ea.springbasic.test.SpringTestNGTest2"/>
+        </classes>
+    </test>
+    <test name="springTestNGTest3">
+        <parameter name="keyword" value="java"/>
+        <classes>
+            <class name="com.ea.springbasic.test.SpringTestNGTest2"/>
+        </classes>
+    </test>
 </suite>

@@ -1,8 +1,9 @@
 package com.ea.springbasic.pages;
 
-
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
  * '@ConditionalOnProperty(name = "env", havingValue = "qa")' restrict creation
  * of beans for all environments except qa in case of 'spring.profiles.active=qa' is set
  */
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 @Component
 @ConditionalOnProperty(name = "env", havingValue = "qa")
 public class MainPage {

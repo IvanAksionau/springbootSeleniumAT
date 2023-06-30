@@ -7,7 +7,6 @@ import com.ea.springbasic.pages.LoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Assert;
 

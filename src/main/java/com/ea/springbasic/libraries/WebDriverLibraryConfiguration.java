@@ -9,11 +9,20 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
+/**
+ * In this class we set up webdriver with possibility to run tests in parallel,
+ * by using @Scope("driverScope") annotation, which creates a new instance of webdriver for each thread.
+ * <p>
+ * Also, to support parallel test execution we add @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) annotation
+ * for all page object classes. See ex. {@link com.ea.springbasic.pages.HomePage} class.
+ */
 @Configuration
 public class WebDriverLibraryConfiguration {
 
     @Bean
+    @Scope("driverScope")
     @ConditionalOnProperty(name = "browser", havingValue = "chrome")
     WebDriver getChromeDriver() {
         WebDriverManager.chromedriver().setup();
@@ -23,6 +32,7 @@ public class WebDriverLibraryConfiguration {
     }
 
     @Bean
+    @Scope("driverScope")
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     WebDriver getFirefoxDriver() {
         WebDriverManager.firefoxdriver().browserVersion("113.0").setup();
