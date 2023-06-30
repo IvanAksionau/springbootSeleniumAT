@@ -8,6 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.*;
 
+/*
+  set 'spring.profiles.active=qa' in VM options/env variables of run configuration
+ */
 @SpringBootTest
 public class SpringTestNGTest extends AbstractTestNGSpringContextTests {
 
@@ -34,6 +37,11 @@ public class SpringTestNGTest extends AbstractTestNGSpringContextTests {
 
     @Test
     public void test() {
-        mainPage2.performLogin().closeBrowser();
+        mainPage2.performLogin();
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        webDriver.quit();
     }
 }

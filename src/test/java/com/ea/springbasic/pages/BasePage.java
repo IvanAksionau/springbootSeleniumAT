@@ -14,8 +14,4 @@ public abstract class BasePage {
     public void initElements() {
         PageFactory.initElements(webDriver, this);
     }
-
-    public void closeBrowser() {
-        webDriver.quit();
-    }
 }
