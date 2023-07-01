@@ -7,4 +7,5 @@
 
 
 ### Useful links
-* https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html
+* Spring bean scopes https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html
+* Cucumber parallel test execution https://cucumber.io/docs/guides/parallel-execution/?lang=java

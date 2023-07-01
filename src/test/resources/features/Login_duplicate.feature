@@ -1,7 +1,7 @@
-Feature: LoginFeature
+Feature: LoginFeature2
   This feature deals with the login functionality of the application
 
-  Scenario: Login with correct username and password 1
+  Scenario: Login with correct username and password 3
     Given I click login in Home Page
     And I enter the following for Login
       | username | password      |
@@ -10,7 +10,7 @@ Feature: LoginFeature
     Then I should see the userform page
 
 
-  Scenario: Login with correct username and password 2
+  Scenario: Login with correct username and password 4
     Given I click login in Home Page
     And I enter the following for Login
       | username | password      |

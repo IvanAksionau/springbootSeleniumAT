@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="search-module" parallel="tests">
+<suite name="test-module" parallel="tests">
     <test name="springTestNGTest">
         <parameter name="keyword" value="java"/>
         <classes>

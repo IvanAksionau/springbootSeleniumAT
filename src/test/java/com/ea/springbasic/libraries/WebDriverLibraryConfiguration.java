@@ -24,7 +24,7 @@ public class WebDriverLibraryConfiguration {
     @Bean
     @Scope("driverScope")
     @ConditionalOnProperty(name = "browser", havingValue = "chrome")
-    WebDriver getChromeDriver() {
+    WebDriver chromeDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
