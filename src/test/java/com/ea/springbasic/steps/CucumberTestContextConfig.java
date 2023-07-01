@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Scope;
  * The @CucumberContextConfiguration annotation is used to load the Spring Boot application context.
  * The @SpringBootTest annotation is used to load the application configuration.
  */
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 @CucumberContextConfiguration
 @SpringBootTest
 public class CucumberTestContextConfig {
