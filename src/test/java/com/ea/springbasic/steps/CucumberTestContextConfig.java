@@ -1,9 +1,7 @@
 package com.ea.springbasic.steps;
 
 import io.cucumber.spring.CucumberContextConfiguration;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Scope;
 
 /**
  * This class is used to configure Cucumber with Spring Boot.
