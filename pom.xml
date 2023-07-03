@@ -20,8 +20,6 @@
         <selenium-java.version>4.8.3</selenium-java.version>
         <selenium-webdrivermanager.version>5.3.2</selenium-webdrivermanager.version>
         <testng.version>7.7.0</testng.version>
-        <httpcore.version>4.4.16</httpcore.version>
-        <httpclient.version>4.5.6</httpclient.version>
         <cucumber-java.version>6.9.1</cucumber-java.version>
         <cucumber-spring.version>6.9.1</cucumber-spring.version>
         <httpclient5.version>5.2.1</httpclient5.version>
@@ -34,7 +32,6 @@
             <artifactId>spring-boot-starter</artifactId>
             <groupId>org.springframework.boot</groupId>
         </dependency>
-
         <dependency>
             <artifactId>spring-boot-starter-test</artifactId>
             <groupId>org.springframework.boot</groupId>
@@ -55,7 +52,6 @@
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
         </dependency>
-
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-spring</artifactId>
@@ -71,7 +67,6 @@
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber-java.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>
