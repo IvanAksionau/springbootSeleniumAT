@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Scope;
  */
 @Configuration
 @Profile("!remote")
-public class WebDriverLibraryConfiguration {
+public class WebDriverFactory {
 
     @Bean
     @Scope("driverScope")
