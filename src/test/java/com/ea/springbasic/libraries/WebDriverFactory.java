@@ -36,11 +36,11 @@ public class WebDriverFactory {
     @Bean
     @Scope("driverScope")
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
-    WebDriver getFirefoxDriver() {
-        WebDriverManager.firefoxdriver().browserVersion("113.0").setup();
+    WebDriver fireFoxDriver() {
+        WebDriverManager.firefoxdriver().setup();
+//        WebDriverManager.firefoxdriver().browserVersion("115.0").setup();
         FirefoxOptions options = new FirefoxOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
         return new FirefoxDriver(options);
     }
 }
