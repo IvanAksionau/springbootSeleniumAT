@@ -6,11 +6,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
+
+import java.util.List;
 
 /**
  * In this class we set up webdriver with possibility to run tests in parallel,
@@ -23,13 +26,16 @@ import org.springframework.context.annotation.Scope;
 @Profile("!remote")
 public class WebDriverFactory {
 
+    @Value("${driver.options}")
+    public List<String> driverOptions;
+
     @Bean
     @Scope("driverScope")
     @ConditionalOnProperty(name = "browser", havingValue = "chrome")
     WebDriver chromeDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
+        driverOptions.forEach(options::addArguments);
         return new ChromeDriver(options);
     }
 
@@ -38,9 +44,8 @@ public class WebDriverFactory {
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     WebDriver fireFoxDriver() {
         WebDriverManager.firefoxdriver().setup();
-//        WebDriverManager.firefoxdriver().browserVersion("115.0").setup();
         FirefoxOptions options = new FirefoxOptions();
-        options.addArguments("--headless");
+        driverOptions.forEach(options::addArguments);
         return new FirefoxDriver(options);
     }
 }

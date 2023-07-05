@@ -7,6 +7,9 @@
 * Various browsers support (Chrome, Firefox) from setup of 'spring.profiles.active=qa' in VM options/env variables of run configuration
 
 
+### Test execution:
+- Run command 'mvn clean install -D"driver.options=--headless,--remote-allow-origins=*"'
+
 ### Remote execution on Selenium grid
 - To activate settings you should specify required 'properties' files for spring configuration - 'spring.profiles.active=prod,remote'
 - You can also run tests from maven itself with 'mvn clean install -D"spring.profiles.active=prod,remote"'

@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
 
 import java.net.URL;
+import java.util.List;
 
 /**
  * In this Beans configuration we use {@code @ConditionalOnProperty(name = "browser", havingValue = "chrome")}
@@ -25,6 +26,9 @@ import java.net.URL;
 @Profile("remote")
 public class RemoteWebDriverFactory {
 
+    @Value("${driver.options}")
+    public List<String> driverOptions;
+
     @Value("${grid.url}")
     public URL gridUrl;
 
@@ -33,7 +37,7 @@ public class RemoteWebDriverFactory {
     @ConditionalOnProperty(name = "browser", havingValue = "chrome")
     WebDriver remoteChromeDriver() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
+        driverOptions.forEach(options::addArguments);
         return new RemoteWebDriver(gridUrl, options);
     }
 
@@ -42,8 +46,7 @@ public class RemoteWebDriverFactory {
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     WebDriver remoteFireFoxDriver() {
         FirefoxOptions options = new FirefoxOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+        driverOptions.forEach(options::addArguments);
         return new RemoteWebDriver(gridUrl, options);
     }
 }
