@@ -20,7 +20,8 @@
 - To increase the number of containers for parallel tests execution run 'docker-compose up -d --scale chrome=4'.
 - You can check if hub was started by CURL GET http://localhost:4444/wd/hub/status
 
-
+### CI integration:
+- On each comment push to master branch/pull request tests will be executed with GitHub Actions. You can check the results of the execution in the 'Actions' tab of the repository.
 ### Useful links:
 - Spring bean scopes https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html
 - Cucumber parallel test execution https://cucumber.io/docs/guides/parallel-execution/?lang=java
