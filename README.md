@@ -30,3 +30,5 @@
 - Cucumber parallel test execution https://cucumber.io/docs/guides/parallel-execution/?lang=java
 - Cucumber reporting https://github.com/damianszczepanik/maven-cucumber-reporting
 - cucumber-report-annotations-action https://github.com/deblockt/cucumber-report-annotations-action
+- GitHub Pages https://pages.github.com/
+- GitHub Action to deploy your static files to GitHub Page https://github.com/peaceiris/actions-gh-pages
