@@ -9,6 +9,7 @@
 
 ### Test execution:
 - Run command 'mvn clean install -D"driver.options=--headless,--remote-allow-origins=*"'
+- Run directly any ...xml file located in the root folder.(ex. 'smoke-module_cucumber_runner.xml')
 
 ### Remote execution on Selenium grid
 - To activate settings you should specify required 'properties' files for spring configuration - 'spring.profiles.active=prod,remote'
