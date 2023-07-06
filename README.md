@@ -27,6 +27,7 @@
 - Bellow you see how repository is set to deploy the report:
 
 ![img_1.png](img_1.png)
+![img_2.png](img_2.png)
 
 - You can access last generate report by https://ivanaksionau.github.io/springbootSeleniumAT/cucumber-html-reports/overview-steps.html
 
