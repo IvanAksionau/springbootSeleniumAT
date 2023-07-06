@@ -1,5 +1,7 @@
 # SpringBoot/Selenium/Cucumber test framework for WEB application testing.
 
+[![Java CI with Maven](https://github.com/IvanAksionau/springbootSeleniumAT/actions/workflows/ci_settings.yml/badge.svg)](https://github.com/IvanAksionau/springbootSeleniumAT/actions/workflows/ci_settings.yml)
+
 ### Framework features:
 * Test execution from xml files.
 * Support of parallel test execution with Prototype Scope of spring framework.
