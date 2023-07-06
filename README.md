@@ -22,7 +22,13 @@
 
 
 ### CI integration:
-- On each comment push to master branch/pull request tests will be executed with GitHub Actions. You can check the results of the execution in the 'Actions' tab of the repository.
+- On each comment push to master branch/pull request tests will be executed with GitHub Actions. 
+- You can check the results of the execution in the 'Actions' tab of the repository.
+- Bellow you see how repository is set to deploy the report:
+
+![img_1.png](img_1.png)
+
+- You can access last generate report by https://ivanaksionau.github.io/springbootSeleniumAT/cucumber-html-reports/overview-steps.html
 
 
 ### Useful links:
