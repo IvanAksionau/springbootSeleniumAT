@@ -2,7 +2,8 @@
 
 [![Java CI with Maven](https://github.com/IvanAksionau/springbootSeleniumAT/actions/workflows/ci_settings.yml/badge.svg)](https://github.com/IvanAksionau/springbootSeleniumAT/actions/workflows/ci_settings.yml)
 
-[![img_3.png](img_3.png)](https://ivanaksionau.github.io/springbootSeleniumAT/overview-features.html)
+
+[![img_4.png](img_4.png)](https://ivanaksionau.github.io/springbootSeleniumAT/overview-features.html)
 
 ### Framework features:
 * Test execution from xml files.
