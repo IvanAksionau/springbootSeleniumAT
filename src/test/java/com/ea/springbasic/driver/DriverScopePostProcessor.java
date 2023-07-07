@@ -1,4 +1,4 @@
-package com.ea.springbasic.libraries;
+package com.ea.springbasic.driver;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;

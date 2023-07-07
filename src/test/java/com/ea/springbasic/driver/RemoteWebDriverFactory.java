@@ -1,4 +1,4 @@
-package com.ea.springbasic.libraries;
+package com.ea.springbasic.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;

@@ -1,4 +1,4 @@
-package com.ea.springbasic.libraries;
+package com.ea.springbasic.driver;
 
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.context.support.SimpleThreadScope;

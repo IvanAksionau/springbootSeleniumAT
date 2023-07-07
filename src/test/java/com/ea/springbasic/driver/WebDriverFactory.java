@@ -1,4 +1,4 @@
-package com.ea.springbasic.libraries;
+package com.ea.springbasic.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
