@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -32,20 +34,40 @@ public class WebDriverFactory {
     @Bean
     @Scope("driverScope")
     @ConditionalOnProperty(name = "browser", havingValue = "chrome")
-    WebDriver chromeDriver() {
+    WebDriver chromeDriver(ChromeOptions chromeOptions) {
         WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        driverOptions.forEach(options::addArguments);
-        return new ChromeDriver(options);
+        return new ChromeDriver(chromeOptions);
     }
 
     @Bean
     @Scope("driverScope")
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
-    WebDriver fireFoxDriver() {
+    WebDriver fireFoxDriver(FirefoxOptions firefoxOptions) {
         WebDriverManager.firefoxdriver().setup();
+        return new FirefoxDriver(firefoxOptions);
+    }
+
+    @Bean
+    @ConditionalOnProperty(name = "browser", havingValue = "chrome")
+    ChromeOptions chromeOptions() {
+        ChromeOptions options = new ChromeOptions();
+        driverOptions.forEach(options::addArguments);
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        options.merge(capabilities);
+        return options;
+    }
+
+    @Bean
+    @ConditionalOnProperty(name = "browser", havingValue = "firefox")
+    FirefoxOptions firefoxOptions() {
+        FirefoxProfile profile = new FirefoxProfile();
+        profile.setPreference("javascript.enabled", true);
         FirefoxOptions options = new FirefoxOptions();
         driverOptions.forEach(options::addArguments);
-        return new FirefoxDriver(options);
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
+        options.merge(capabilities);
+        return options;
     }
 }
