@@ -13,9 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *  {@code @Configuration,} @EnableAutoConfiguration, and @ComponentScan.
  */
 @SpringBootApplication
-public class SpringBasicApplication {
+public class SpringApplicationStarter {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBasicApplication.class, args);
+        SpringApplication.run(SpringApplicationStarter.class, args);
     }
 }
