@@ -38,6 +38,7 @@
 
 
 ### Useful links:
+- About cucumber https://habr.com/ru/articles/332754/
 - Spring bean scopes https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html
 - Cucumber parallel test execution https://cucumber.io/docs/guides/parallel-execution/?lang=java
 - Cucumber reporting https://github.com/damianszczepanik/maven-cucumber-reporting
