@@ -7,6 +7,8 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.time.Duration;
+
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 @Component
 public class LoginPage extends BasePage {
@@ -29,5 +31,12 @@ public class LoginPage extends BasePage {
     public HomePage clickLogin() {
         btnLogin.click();
         return new HomePage();
+    }
+
+    @Override
+    public boolean isDisplayed() {
+        return wait.withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(3))
+                .until((d) -> btnLogin.isDisplayed());
     }
 }

@@ -25,11 +25,16 @@ public class HomePage extends BasePage {
         return new LoginPage();
     }
 
-    public void ClickEmployeeList() {
+    public void clickEmployeeList() {
         lnkEmployeeList.click();
     }
 
     public boolean isEmployeeDetailsExist() {
         return lnkEmployeeDetails.isDisplayed();
+    }
+
+    @Override
+    public boolean isDisplayed() {
+        return wait.until((d) -> lnkLogin.isDisplayed());
     }
 }

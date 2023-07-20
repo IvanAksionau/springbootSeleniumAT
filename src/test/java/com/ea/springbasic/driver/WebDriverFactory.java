@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
 
+import java.time.Duration;
 import java.util.List;
 
 /**
@@ -45,6 +47,13 @@ public class WebDriverFactory {
     WebDriver fireFoxDriver(FirefoxOptions firefoxOptions) {
         WebDriverManager.firefoxdriver().setup();
         return new FirefoxDriver(firefoxOptions);
+    }
+
+    @Bean
+    @Scope("driverScope")
+    WebDriverWait wait(WebDriver webDriver) {
+        WebDriverManager.firefoxdriver().setup();
+        return new WebDriverWait(webDriver, Duration.ofSeconds(30));
     }
 
     @Bean

@@ -28,4 +28,9 @@ public class MainPage2 extends BasePage {
         System.out.println("Login:" + appUrl);
         return this;
     }
+
+    @Override
+    public boolean isDisplayed() {
+        return wait.until((d) -> loginPage.isDisplayed());
+    }
 }
