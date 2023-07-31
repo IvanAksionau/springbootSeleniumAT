@@ -8,21 +8,21 @@
 ### Framework features:
 * Test execution from xml files.
 * Support of parallel test execution with Prototype Scope of spring framework.
-* Various browsers support (Chrome, Firefox) from setup of 'spring.profiles.active=qa' in VM options/env variables of run configuration
+* Various browsers support (Chrome, Firefox) from setup of ```spring.profiles.active=qa``` in VM options/env variables of run configuration
 
 
 ### Test execution:
-- Run command 'mvn clean install -D"driver.options=--headless,--remote-allow-origins=*"'
+- Run command ```mvn clean install -D"driver.options=--headless,--remote-allow-origins=*"```
 - Run directly any ...xml file located in the root folder.(ex. 'smoke-module_cucumber_runner.xml')
 
 
 ### Remote execution on Selenium grid
-- To activate settings you should specify required 'properties' files for spring configuration - 'spring.profiles.active=prod,remote'
+- To activate settings you should specify required 'properties' files for spring configuration - ```spring.profiles.active=prod,remote```
 - You can also run tests from maven itself with 'mvn clean install -D"spring.profiles.active=prod,remote"'
 
 ![img.png](img.png)
   
-- To increase the number of containers for parallel tests execution run 'docker-compose up -d --scale chrome=4'.
+- To increase the number of containers for parallel tests execution run ```docker-compose up -d --scale chrome=4```.
 - You can check if hub was started by CURL GET http://localhost:4444/wd/hub/status
 
 
