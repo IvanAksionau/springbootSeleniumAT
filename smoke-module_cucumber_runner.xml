@@ -2,7 +2,7 @@
 <suite name="test-module" parallel="instances">
     <test name="E2E Test of EAApp">
         <classes>
-            <class name="com.ea.springbasic.runner.TestRunner"></class>
+            <class name="com.ea.springbasic.runner.TestRunner"/>
         </classes>
     </test>
 </suite>

@@ -35,6 +35,12 @@ public class WebDriverFactory {
 
     @Bean
     @Scope("driverScope")
+    WebDriverWait wait(WebDriver webDriver) {
+        return new WebDriverWait(webDriver, Duration.ofSeconds(30));
+    }
+
+    @Bean
+    @Scope("driverScope")
     @ConditionalOnProperty(name = "browser", havingValue = "chrome")
     WebDriver chromeDriver(ChromeOptions chromeOptions) {
         WebDriverManager.chromedriver().setup();
@@ -47,13 +53,6 @@ public class WebDriverFactory {
     WebDriver fireFoxDriver(FirefoxOptions firefoxOptions) {
         WebDriverManager.firefoxdriver().setup();
         return new FirefoxDriver(firefoxOptions);
-    }
-
-    @Bean
-    @Scope("driverScope")
-    WebDriverWait wait(WebDriver webDriver) {
-        WebDriverManager.firefoxdriver().setup();
-        return new WebDriverWait(webDriver, Duration.ofSeconds(30));
     }
 
     @Bean
