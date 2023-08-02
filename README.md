@@ -18,6 +18,7 @@
 
 ### Remote execution on Selenium grid
 - Run command ```docker-compose up -d --scale chrome=4``` to start selenium hub and 4 chrome nodes.
+- Go to http://localhost:4444/grid/console to check 'Grid Console'.
 - To activate settings you should specify required 'properties' files for spring configuration - ```spring.profiles.active=prod,remote```
 - You can also run tests from maven itself with ```mvn clean install -D"spring.profiles.active=prod,remote"``` command.
 

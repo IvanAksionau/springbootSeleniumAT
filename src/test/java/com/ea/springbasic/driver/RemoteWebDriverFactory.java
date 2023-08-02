@@ -7,10 +7,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
 import java.net.URL;
 import java.time.Duration;
@@ -21,9 +18,11 @@ import java.util.List;
  * which will use set property, locate into predefined '.properties' file (ex. 'browser=chrome').
  * <p>
  * In order to specify which '.properties' file,
- * we are gonna to use, we specify properties file marker like {@code @Profile("remote")},
- * so 'application-remote.properties' will be selected by Spring framework for usage.
+ * we specify properties file marker like {@code @Profile("remote")},
+ * so 'application-remote.properties' will be selected by Spring framework for usage,
+ * otherwise it avoids to initiate this configuration.
  */
+@Lazy
 @Configuration
 @Profile("remote")
 public class RemoteWebDriverFactory {

@@ -11,10 +11,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
 import java.time.Duration;
 import java.util.List;
@@ -26,6 +23,7 @@ import java.util.List;
  * Also, to support parallel test execution we add @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) annotation
  * for all page object classes. See ex. {@link com.ea.springbasic.pages.HomePage} class.
  */
+@Lazy
 @Configuration
 @Profile("!remote")
 public class WebDriverFactory {

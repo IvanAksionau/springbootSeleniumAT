@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.*;
 
@@ -24,6 +25,7 @@ public class SpringTestNGTest extends AbstractTestNGSpringContextTests {
     @Autowired
     private MainPage2 mainPage2;
 
+    @Lazy
     @Autowired
     private ScreenShotUtil screenShotUtil;
 
@@ -42,6 +44,7 @@ public class SpringTestNGTest extends AbstractTestNGSpringContextTests {
     @Test
     public void test() {
         mainPage2.performLogin();
+        mainPage2.isDisplayed();
         screenShotUtil.takeScreenShot();
     }
 
