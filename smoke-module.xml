@@ -18,4 +18,10 @@
             <class name="com.ea.springbasic.test.SpringTestNGTest2"/>
         </classes>
     </test>
+    <test name="springTestNGTest4">
+        <parameter name="keyword" value="java"/>
+        <classes>
+            <class name="com.ea.springbasic.test.SpringTestNGTest2"/>
+        </classes>
+    </test>
 </suite>

@@ -28,7 +28,7 @@ import java.util.List;
 @Profile("remote")
 public class RemoteWebDriverFactory {
 
-    @Value("${driver.options}")
+    @Value("${driver.options:--remote-allow-origins=*}")
     public List<String> driverOptions;
 
     @Value("${grid.url}")
