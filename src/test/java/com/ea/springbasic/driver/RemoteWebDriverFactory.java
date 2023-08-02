@@ -28,9 +28,6 @@ import java.util.List;
 @Profile("remote")
 public class RemoteWebDriverFactory {
 
-    @Value("${driver.options:--remote-allow-origins=*}")
-    public List<String> driverOptions;
-
     @Value("${grid.url}")
     public URL gridUrl;
 
@@ -43,7 +40,8 @@ public class RemoteWebDriverFactory {
     @Bean
     @Scope("driverScope")
     @ConditionalOnProperty(name = "browser", havingValue = "chrome")
-    WebDriver remoteChromeDriver() {
+    WebDriver remoteChromeDriver(@Value("${driver.options:--remote-allow-origins=*}")
+                                 List<String> driverOptions) {
         ChromeOptions options = new ChromeOptions();
         driverOptions.forEach(options::addArguments);
         return new RemoteWebDriver(gridUrl, options);
@@ -52,7 +50,8 @@ public class RemoteWebDriverFactory {
     @Bean
     @Scope("driverScope")
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
-    WebDriver remoteFireFoxDriver() {
+    WebDriver remoteFireFoxDriver(@Value("${driver.options:--remote-allow-origins=*}")
+                                  List<String> driverOptions) {
         FirefoxOptions options = new FirefoxOptions();
         driverOptions.forEach(options::addArguments);
         return new RemoteWebDriver(gridUrl, options);
