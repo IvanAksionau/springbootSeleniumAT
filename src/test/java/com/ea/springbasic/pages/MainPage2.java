@@ -1,5 +1,6 @@
 package com.ea.springbasic.pages;
 
+import com.ea.springbasic.pages.annotation.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,8 +16,7 @@ import java.util.function.Function;
 /**
  * Field level dependency injection
  */
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-@Component
+@Page
 public class MainPage2 extends BasePage {
 
     @Autowired

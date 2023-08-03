@@ -27,13 +27,11 @@ public class WebDriverWaitFactory {
     public int fluentPollingTime;
 
     @Bean
-    @Scope("driverScope")
     WebDriverWait webDriverWait(WebDriver webDriver) {
         return new WebDriverWait(webDriver, Duration.ofSeconds(explicitWaitTime));
     }
 
     @Bean
-    @Scope("driverScope")
     Wait<WebDriver> fluentWait(WebDriver webDriver) {
         return new FluentWait<WebDriver>(webDriver)
                 .withTimeout(Duration.ofSeconds(explicitWaitTime))
