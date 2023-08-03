@@ -47,3 +47,4 @@
 - cucumber-report-annotations-action https://github.com/deblockt/cucumber-report-annotations-action
 - GitHub Pages https://pages.github.com/
 - GitHub Action to deploy your static files to GitHub Page https://github.com/peaceiris/actions-gh-pages
+- Selenium Wait Commands: Implicit, Explicit, and Fluent Wait https://www.browserstack.com/guide/wait-commands-in-selenium-webdriver

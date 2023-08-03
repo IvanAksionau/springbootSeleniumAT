@@ -1,10 +1,16 @@
 package com.ea.springbasic.pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+import java.util.function.Function;
 
 /**
  * Field level dependency injection
@@ -31,6 +37,19 @@ public class MainPage2 extends BasePage {
 
     @Override
     public boolean isDisplayed() {
-        return wait.until((d) -> loginPage.isDisplayed());
+        Function<WebDriver, WebElement> function = new Function<WebDriver, WebElement>() {
+            public WebElement apply(WebDriver arg0) {
+                System.out.println("Checking for the object!!");
+                WebElement element = arg0.findElement(By.cssSelector(".btn-default"));
+                if (element != null) {
+                    System.out.println("A new dynamic object is found.");
+                }
+                return element;
+            }
+        };
+        fluentWait.until(function);
+
+        webDriverWait.until(ExpectedConditions.visibilityOf(loginPage.btnLogin));
+        return webDriverWait.until((d) -> loginPage.isDisplayed());
     }
 }

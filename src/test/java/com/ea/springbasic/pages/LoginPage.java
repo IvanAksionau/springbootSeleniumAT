@@ -35,7 +35,7 @@ public class LoginPage extends BasePage {
 
     @Override
     public boolean isDisplayed() {
-        return wait.withTimeout(Duration.ofSeconds(10))
+        return webDriverWait.withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofSeconds(3))
                 .until((d) -> btnLogin.isDisplayed());
     }

@@ -8,12 +8,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.*;
 
-import java.time.Duration;
 import java.util.List;
 
 /**
@@ -30,12 +28,6 @@ public class WebDriverFactory {
 
     @Value("${driver.options:--remote-allow-origins=*}")
     public List<String> driverOptions;
-
-    @Bean
-    @Scope("driverScope")
-    WebDriverWait wait(WebDriver webDriver) {
-        return new WebDriverWait(webDriver, Duration.ofSeconds(30));
-    }
 
     @Bean
     @Scope("driverScope")

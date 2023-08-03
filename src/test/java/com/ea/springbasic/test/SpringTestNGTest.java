@@ -8,7 +8,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 /*
   set 'spring.profiles.active=qa' in VM options/env variables of run configuration
@@ -22,6 +28,9 @@ public class SpringTestNGTest extends AbstractTestNGSpringContextTests {
     @Value("${app.url}")
     private String appUrl;
 
+    @Value("${implicit.wait.time}")
+    public int implicitWaitTime ;
+
     @Autowired
     private MainPage2 mainPage2;
 
@@ -31,6 +40,10 @@ public class SpringTestNGTest extends AbstractTestNGSpringContextTests {
 
     @BeforeMethod(alwaysRun = true)
     protected void setupWebDriver() {
+        // Implicit Wait directs the Selenium WebDriver to wait for a certain measure of time
+        // before throwing an exception.
+        // Once this time is set, WebDriver will wait for the element before the exception occurs.
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitTime));
         webDriver.navigate().to(appUrl);
     }
 

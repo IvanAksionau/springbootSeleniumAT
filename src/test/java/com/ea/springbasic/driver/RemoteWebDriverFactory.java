@@ -4,13 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.*;
 
 import java.net.URL;
-import java.time.Duration;
 import java.util.List;
 
 /**
@@ -29,12 +27,6 @@ public class RemoteWebDriverFactory {
 
     @Value("${grid.url}")
     public URL gridUrl;
-
-    @Bean
-    @Scope("driverScope")
-    WebDriverWait wait(WebDriver webDriver) {
-        return new WebDriverWait(webDriver, Duration.ofSeconds(30));
-    }
 
     @Bean
     @Scope("driverScope")
