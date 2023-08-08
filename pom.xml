@@ -90,16 +90,12 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>smoke-module_cucumber_runner.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <testFailureIgnore>true</testFailureIgnore>
                     <properties>
                         <property>
                             <name>dataproviderthreadcount</name>
                             <value>20</value>
                         </property>
                     </properties>
-                    <!--                    <includes>-->
-                    <!--                        <include>com.ea.springbasic.runner.TestRunner</include>-->
-                    <!--                    </includes>-->
                 </configuration>
             </plugin>
             <plugin>

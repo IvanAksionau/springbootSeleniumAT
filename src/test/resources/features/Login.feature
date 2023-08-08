@@ -1,19 +1,20 @@
 Feature: LoginFeature
   This feature deals with the login functionality of the application
 
-  Scenario: Login with correct username and password 1
-    Given I click login in Home Page
-    And I enter the following for Login
-      | username | password      |
-      | admin    | password      |
-    And I click login button
-    Then I should see the userform page
+  Scenario: Login with correct username and password
+    Then I check the home page is displayed
 
+    When I click login account button
+    Then I check the user login page is displayed
 
-  Scenario: Login with correct username and password 2
-    Given I click login in Home Page
-    And I enter the following for Login
-      | username | password      |
-      | admin    | password2      |
-    And I click login button
-    Then I should see the userform page
+    When I login with user credentials
+    Then I check the user account page is displayed
+
+  Scenario: Login with correct username and password2
+    Then I check the home page is displayed
+
+    When I click login account button
+    Then I check the user login page is displayed
+
+    When I login with user credentials
+    Then I check the user account page is displayed

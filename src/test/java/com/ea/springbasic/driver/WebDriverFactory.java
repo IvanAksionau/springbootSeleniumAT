@@ -1,5 +1,6 @@
 package com.ea.springbasic.driver;
 
+import com.ea.springbasic.pages.AccountPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,7 +20,7 @@ import java.util.List;
  * by using @Scope("driverScope") annotation, which creates a new instance of webdriver for each thread.
  * <p>
  * Also, to support parallel test execution we add @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) annotation
- * for all page object classes. See ex. {@link com.ea.springbasic.pages.HomePage} class.
+ * for all page object classes. See ex. {@link AccountPage} class.
  */
 @Lazy
 @Configuration
