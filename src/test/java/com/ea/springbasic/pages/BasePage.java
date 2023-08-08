@@ -8,8 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 
-import java.time.Duration;
-
 public abstract class BasePage {
 
     @Autowired

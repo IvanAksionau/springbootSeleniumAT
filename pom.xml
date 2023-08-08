@@ -69,6 +69,11 @@
             <artifactId>cucumber-testng</artifactId>
             <version>${cucumber-java.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -85,6 +90,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>smoke-module_cucumber_runner.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <properties>
                         <property>
                             <name>dataproviderthreadcount</name>

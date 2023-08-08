@@ -58,7 +58,7 @@ public class SpringTestNGTest extends AbstractTestNGSpringContextTests {
     public void test() {
         mainPage2.performLogin();
         mainPage2.isDisplayed();
-        screenShotUtil.takeScreenShot();
+        screenShotUtil.takeScreenShot("");
     }
 
     @AfterMethod

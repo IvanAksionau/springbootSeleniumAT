@@ -7,9 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
 
@@ -38,13 +35,8 @@ public class MainPage2 extends BasePage {
     @Override
     public boolean isDisplayed() {
         Function<WebDriver, WebElement> function = new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver arg0) {
-                System.out.println("Checking for the object!!");
-                WebElement element = arg0.findElement(By.cssSelector(".btn-default"));
-                if (element != null) {
-                    System.out.println("A new dynamic object is found.");
-                }
-                return element;
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(By.cssSelector(".btn-default"));
             }
         };
         fluentWait.until(function);
