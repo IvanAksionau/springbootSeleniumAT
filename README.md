@@ -20,7 +20,7 @@
 
 
 ### Test execution:
-- Run command ```mvn clean install -D"app.env=dev" -D"app.url=https://dev-kayanee.myshopify.com/"``` - will start tests on local chrome driver.
+- Run command ```mvn clean install -D"app.env=dev" -D"app.url=https://dev-kayanee.myshopify.com/" -D"driver.options=--headless,--remote-allow-origins=*``` - will start tests on local chrome driver.
 - Run directly any ...xml file located in the root folder.(ex. 'smoke-module_cucumber_runner.xml')
 - Various browsers support (Chrome, Firefox) from setup of ```spring.profiles.active=qa``` in VM options/env variables of run configuration.
 
