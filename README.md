@@ -5,27 +5,35 @@
 
 [![img_4.png](img_4.png)](https://ivanaksionau.github.io/springbootSeleniumAT/overview-features.html)
 
+### Preconditions:
+* Installed Java 11
+* Installed Maven
+* Installed Docker 
+
 ### Framework features:
-* Test execution from xml files.
-* Support of parallel test execution with Prototype Scope of spring framework.
-* Various browsers support (Chrome, Firefox) from setup of ```spring.profiles.active=qa``` in VM options/env variables of run configuration
+* Up-and running Selenium hub with 5 chrome nodes. with docker-compose.yml configuration.
+* Parallel test execution with Cucumber.
+* Execute tests described in BDD stile as Cucumber features on both local or remote chrome drivers.
+* Cross browser testing with Chrome and Firefox on Selenium hube notes.
+* Test execution on CI with GitHub Actions.
+* Test report generation with Cucumber reporting plugin.( find in ```target/cucumber-html-reports/overview-failures.html```)
 
 
 ### Test execution:
-- Run command ```mvn clean install -D"driver.options=--headless,--remote-allow-origins=*"```
+- Run command ```mvn clean install -D"app.env=dev" -D"app.url=https://dev-kayanee.myshopify.com/"``` - will start tests on local chrome driver.
 - Run directly any ...xml file located in the root folder.(ex. 'smoke-module_cucumber_runner.xml')
+- Various browsers support (Chrome, Firefox) from setup of ```spring.profiles.active=qa``` in VM options/env variables of run configuration.
 
 
-### Remote execution on Selenium grid
-- Run command ```docker-compose up -d --scale chrome=4``` to start selenium hub and 4 chrome nodes.
+### Remote execution on Selenium hub:
+- Run command ```docker-compose up -d --scale chrome=5``` from a root project folder to start selenium hub and 5 chrome nodes.
 - Go to http://localhost:4444/grid/console to check 'Grid Console'.
-- To activate settings you should specify required 'properties' files for spring configuration - ```spring.profiles.active=prod,remote```
-- You can also run tests from maven itself with ```mvn clean install -D"spring.profiles.active=prod,remote"``` command.
+- You can check if hub was started by CURL GET http://localhost:4444/wd/hub/status
+
+- Run command ```mvn clean install -D"app.env=dev" -D"app.url=https://dev-kayanee.myshopify.com/" -D"spring.profiles.active=remote"``` - will start tests on remote selenium hub.
+- To activate settings you should specify required 'properties' files for spring configuration - ```spring.profiles.active=prod,remote``` or ```spring.profiles.active=qa,remote```
 
 ![img.png](img.png)
-  
-- To increase the number of containers for parallel tests execution run ```docker-compose up -d --scale chrome=4```.
-- You can check if hub was started by CURL GET http://localhost:4444/wd/hub/status
 
 
 ### CI integration:
