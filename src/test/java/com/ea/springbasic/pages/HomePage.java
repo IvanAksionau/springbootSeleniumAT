@@ -15,8 +15,15 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@href='/account/login']")
     private WebElement loginAccountButton;
 
+    @FindBy(xpath = "//a[@href='/collections/apparel']")
+    private WebElement shopNowButton;
+
     public void clickLoginAccountButton() {
         loginAccountButton.click();
+    }
+
+    public void clickShopNowButton() {
+        shopNowButton.click();
     }
 
     @Override

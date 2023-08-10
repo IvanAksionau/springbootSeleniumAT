@@ -7,23 +7,35 @@ import org.openqa.selenium.support.FindBy;
 import java.time.Duration;
 
 @Page
-public class LoginPage extends BasePage {
+public class JoinPage extends BasePage {
+
+    @FindBy(xpath = "//div[@class='login-tab']//*[@id='Join']")
+    private WebElement joinFormActivateLabel;
 
     @FindBy(id = "CustomerEmail")
     private WebElement customerEmailInput;
 
+    @FindBy(id = "form-first_name")
+    private WebElement firstNameInput;
+
+    @FindBy(id = "form-last_name")
+    private WebElement lastNameInput;
+
     @FindBy(id = "pass")
     private WebElement passwordInput;
-
-    @FindBy(xpath = "//div[@class='login-tab']//*[@id='login']")
-    private WebElement loginFormActivateLabel;
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
 
-    public void login(String email, String password) {
+    public void clickJoinFormActivateLabel() {
+        joinFormActivateLabel.click();
+    }
+
+    public void submitJoinForm(String email, String firstName, String lastName, String password) {
         customerEmailInput.sendKeys(email);
-        this.passwordInput.sendKeys(password);
+        firstNameInput.sendKeys(firstName);
+        lastNameInput.sendKeys(lastName);
+        passwordInput.sendKeys(password);
         fluentWait.until((d) -> submitButton.getAttribute("aria-disabled").equals("false"));
         submitButton.click();
     }
@@ -32,6 +44,6 @@ public class LoginPage extends BasePage {
     public boolean isDisplayed() {
         return webDriverWait.withTimeout(Duration.ofSeconds(10))
                 .pollingEvery(Duration.ofSeconds(3))
-                .until((d) -> loginFormActivateLabel.getAttribute("class").contains("active"));
+                .until((d) -> joinFormActivateLabel.getAttribute("class").contains("active"));
     }
 }

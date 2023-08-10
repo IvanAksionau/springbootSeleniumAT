@@ -6,7 +6,7 @@
 
 ### Preconditions:
 
-* Installed Java 11
+* Installed Java 17
 * Installed Maven
 * Installed Docker
 

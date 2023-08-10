@@ -6,7 +6,7 @@ import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Assert;
 
-public class HomeSteps {
+public class HomePageSteps extends BasePageSteps {
 
     @Autowired
     private HomePage homePage;
@@ -21,10 +21,15 @@ public class HomeSteps {
         homePage.clickLoginAccountButton();
     }
 
+    @When("I click shop now button")
+    public void iClickShopNowButton() {
+        homePage.clickShopNowButton();
+    }
+
 //    @And("I check the home page is displayed")
 //    public void iEnterTheFollowingForLogin(DataTable table) {
 //        //var data = table.asList();
-//        loginPage.login(testUserDetails.getUserDetails().username(),
+//        loginPage.login(testUserDetails.getUserDetails().userEmail(),
 //                testUserDetails.getUserDetails().password());
 //    }
 }

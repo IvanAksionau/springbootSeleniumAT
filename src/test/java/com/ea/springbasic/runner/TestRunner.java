@@ -12,7 +12,7 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
         features = {"src/test/resources/features"},
         plugin = {"json:target/cucumber.json", "pretty"},
-//        tags = "@all",
+//        tags = "@smoke",
         glue = "com.ea.springbasic.steps")
 public class TestRunner extends AbstractTestNGCucumberTests {
 

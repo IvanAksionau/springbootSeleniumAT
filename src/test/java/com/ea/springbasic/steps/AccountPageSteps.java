@@ -4,7 +4,7 @@ import com.ea.springbasic.pages.AccountPage;
 import io.cucumber.java.en.Then;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class AccountSteps {
+public class AccountPageSteps extends BasePageSteps {
 
     @Autowired
     private AccountPage accountPage;
