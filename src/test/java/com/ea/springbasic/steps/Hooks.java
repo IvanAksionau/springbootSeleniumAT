@@ -1,4 +1,4 @@
-package com.ea.springbasic.hook;
+package com.ea.springbasic.steps;
 
 import com.ea.springbasic.models.TestUserDetails;
 import com.ea.springbasic.models.UserDetails;

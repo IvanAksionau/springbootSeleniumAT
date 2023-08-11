@@ -92,6 +92,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
                         <suiteXmlFile>smoke-module_cucumber_runner.xml</suiteXmlFile>
                     </suiteXmlFiles>

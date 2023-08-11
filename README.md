@@ -9,37 +9,35 @@
 * Installed Java 17
 * Installed Maven
 * Installed Docker
+* Installed Docker-compose
+* Installed Appium ADB
 
 ### Framework features:
 
-* Up-and running Selenium hub with 5 chrome nodes. with docker-compose.yml configuration.
+* Up-and running Selenium hub with configured number of browser nodes. with docker-compose.yml configuration.
 * Parallel test execution with Cucumber.
-* Execute tests described in BDD stile as Cucumber features on both local or remote chrome drivers.
-* Cross browser testing with Chrome and Firefox on Selenium hube notes.
+* Execute specific test suits with Cucumber tags.
+* Execute tests described in BDD stile as Cucumber features on both local or remote browser drivers.
+* Create a screenshot on test failure. (target/screenshots)
+* Cross browser testing with Chrome/Firefox etc. on Selenium hub nodes.
 * Test execution on CI with GitHub Actions.
-* Test report generation with Cucumber reporting plugin.(find
-  in ```target/cucumber-html-reports/overview-failures.html```)
+* Test report generation with Cucumber reporting plugin.(find in ```target/cucumber-html-reports/overview-failures.html```)
 
 ### Test execution:
 
-- Run
-  command ```mvn clean install -D"app.env=dev" -D"app.url=https://dev-kayanee.myshopify.com/" -D"driver.options=--headless,--remote-allow-origins=*``` -
-  will start tests on local chrome driver.
+- Run command ```mvn clean install -D"cucumber.options=--tags @SmokeTest"``` - will execute only tests tagged as @SmokeTest.
+- Run command ```mvn clean install -D"driver.options=--headless,--remote-allow-origins=*``` - will start tests on local chrome driver in a headless mode.
 - Run directly any ...xml file located in the root folder.(ex. 'smoke-module_cucumber_runner.xml')
-- Various browsers support (Chrome, Firefox) from setup of ```spring.profiles.active=qa``` in VM options/env variables
-  of run configuration.
+- Various env testing from setup of ```mvn clean install -D"driver.options=--headless,--remote-allow-origins=*" -D"spring.profiles.active=qa"```.
 
 ### Remote execution on Selenium hub:
 
-- Run command ```docker-compose up -d --scale chrome=5``` from a root project folder to start selenium hub and 5 chrome
-  nodes.
+- Run command ```docker-compose up -d --scale chrome=5``` from a root project folder to start selenium hub and 5 chrome nodes.
 - Go to http://localhost:4444/grid/console to check 'Grid Console'.
 - You can check if hub was started by CURL GET http://localhost:4444/wd/hub/status
 
-- Run command ```mvn clean install -D"app.env=dev" -D"app.url=https://dev-kayanee.myshopify.com/" -D"spring.profiles.active=remote"``` -
-  will start tests on remote selenium hub.
-- To activate settings you should specify required 'properties' files for spring
-  configuration - ```spring.profiles.active=prod,remote``` or ```spring.profiles.active=qa,remote```
+- Run command ```mvn clean install -D"spring.profiles.active=remote"``` - will start tests on remote selenium hub.
+- To activate settings you should specify required 'properties' files for spring configuration - ```spring.profiles.active=dev,remote``` or ```spring.profiles.active=qa,remote```
 
 ![img.png](img.png)
 
