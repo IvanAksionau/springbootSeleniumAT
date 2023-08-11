@@ -11,6 +11,7 @@
 * Installed Docker
 * Installed Docker-compose
 * Installed Appium ADB
+* Android mobile device connected to PC ()
 
 ### Framework features:
 
@@ -64,4 +65,5 @@
 - Selenium Wait Commands: Implicit, Explicit, and Fluent Wait https://www.browserstack.com/guide/wait-commands-in-selenium-webdriver
 - Selenium Grid https://www.browserstack.com/guide/selenium-grid-tutorial
 - Selenium Grid https://www.selenium.dev/documentation/en/grid/
-- https://www.checkout.com/docs/developer-resources/testing/test-cards - test cards
+- Configure android device connection https://developer.android.com/studio/debug/dev-options.html
+- Test cards https://www.checkout.com/docs/developer-resources/testing/test-cards 
