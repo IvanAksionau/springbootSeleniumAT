@@ -1,24 +1,24 @@
 package com.ea.springbasic.steps;
 
-import com.ea.springbasic.pages.CheckoutPage;
+import com.ea.springbasic.pages.ShippingPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Assert;
 
-public class CheckoutPageSteps extends BasePageSteps {
+public class ShippingPageSteps extends BasePageSteps {
 
     @Autowired
-    private CheckoutPage checkoutPage;
+    private ShippingPage shippingPage;
 
-    @And("I check the checkoutPage is displayed")
+    @And("I check the shippingPage is displayed")
     public void iCheckHomePageIsDisplayed() {
-        Assert.assertTrue(checkoutPage.isDisplayed());
+        Assert.assertTrue(shippingPage.isDisplayed());
     }
 
     @When("I fill the checkout form")
     public void iFillTheCheckoutForm() {
-       checkoutPage.fillInCheckOutForm(
+       shippingPage.fillInCheckOutForm(
                testUserDetails.getUserDetails().getUserEmail(),
                testUserDetails.getUserDetails().getFirstName(),
                testUserDetails.getUserDetails().getLastName(),
@@ -30,6 +30,6 @@ public class CheckoutPageSteps extends BasePageSteps {
 
     @When("I submit the checkout form")
     public void iSubmitCheckOutForm() {
-       checkoutPage.submitCheckOutForm();
+       shippingPage.submitCheckOutForm();
     }
 }

@@ -3,8 +3,7 @@ package com.ea.springbasic.pages;
 import com.ea.springbasic.pages.annotation.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.time.Duration;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Page
 public class HomePage extends BasePage {
@@ -18,6 +17,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@href='/collections/apparel']")
     private WebElement shopNowButton;
 
+    @FindBy(xpath = "//button[contains(text(),'Accept all')]")
+    private WebElement acceptCookiesButton;
+
     public void clickLoginAccountButton() {
         loginAccountButton.click();
     }
@@ -28,8 +30,8 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isDisplayed() {
-        return webDriverWait.withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(3))
-                .until((d) -> defaultLogo.isEnabled());
+        fluentWait.until(ExpectedConditions.elementToBeClickable(acceptCookiesButton));
+        acceptCookiesButton.click();
+        return fluentWait.until((d) -> defaultLogo.isEnabled());
     }
 }

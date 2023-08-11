@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
 
 import java.time.Duration;
 import java.util.NoSuchElementException;
@@ -32,7 +31,7 @@ public class WebDriverWaitFactory {
     }
 
     @Bean
-    Wait<WebDriver> fluentWait(WebDriver webDriver) {
+    FluentWait<WebDriver> fluentWait(WebDriver webDriver) {
         return new FluentWait<WebDriver>(webDriver)
                 .withTimeout(Duration.ofSeconds(explicitWaitTime))
                 .pollingEvery(Duration.ofSeconds(fluentPollingTime))

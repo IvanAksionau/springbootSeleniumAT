@@ -1,8 +1,8 @@
-Feature: LoginFeature
-  This feature deals with the login functionality of the application
+Feature: Regression test suite
+  This feature checks the order manipulation functionality
 
   @RegressionTest
-  Scenario: Create and order as not registered user
+  Scenario: Create and order as not registered user with cash on delivery payment method
     Then I check the home page is displayed
 
     When I click shop now button
@@ -12,10 +12,10 @@ Feature: LoginFeature
     Then I check the product page is displayed for product "Compressive leggings"
 
     When I click on the add to bag button
-    Then I check the product mini cart page page is displayed for product "Compressive leggings"
+    Then I check the product side bar page is displayed for product "Compressive leggings"
 
     When I click on the checkout button
-    Then I check the checkoutPage is displayed
+    Then I check the shippingPage is displayed
 
     When I fill the checkout form
     When I submit the checkout form
@@ -24,3 +24,12 @@ Feature: LoginFeature
     When I click send code button
     When I type verify code value
     When I click verify code button
+    Then I check the delivery page is displayed
+
+    When I click continue to payment button
+    Then I check the paymentPage page is displayed
+
+    When I select cash on delivery payment method
+    And I select cash on delivery payment method
+    And I click submit order button
+    Then I check the order page is displayed

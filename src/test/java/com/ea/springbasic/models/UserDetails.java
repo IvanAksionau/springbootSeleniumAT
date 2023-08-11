@@ -1,8 +1,10 @@
 package com.ea.springbasic.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public class UserDetails {
 
     private final String userEmail;
@@ -13,9 +15,4 @@ public class UserDetails {
     private String city;
     private String phoneCode;
     private String phoneNumber;
-
-    public UserDetails(String userEmail, String userPassword) {
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
-    }
 }

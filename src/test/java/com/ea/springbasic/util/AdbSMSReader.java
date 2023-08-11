@@ -19,9 +19,12 @@ public class AdbSMSReader implements SMSReader {
 
     @Override
     public String extractVerificationCode() {
-        log.info("Extracting verification code from SMS");
+        int millis = 15000;
+        log.info("Wait " + (millis/1000) +" seconds to get SMS verification code");
         String line = "";
         try {
+            Thread.sleep(millis);
+            log.info("Extracting verification code from SMS");
             Process process = Runtime.getRuntime().exec(QUERY_URI_CONTENT_SMS_INBOX);
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 

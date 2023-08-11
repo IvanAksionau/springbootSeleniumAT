@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.*;
 
 import java.net.URL;
+import java.time.Duration;
 import java.util.List;
 
 /**
@@ -28,6 +29,9 @@ public class RemoteWebDriverFactory {
     @Value("${grid.url}")
     public URL gridUrl;
 
+    @Value("${implicit.wait.time}")
+    public int implicitWaitTime;
+
     @Bean
     @Scope("driverScope")
     @ConditionalOnProperty(name = "browser", havingValue = "chrome")
@@ -35,7 +39,9 @@ public class RemoteWebDriverFactory {
                                  List<String> driverOptions) {
         ChromeOptions options = new ChromeOptions();
         driverOptions.forEach(options::addArguments);
-        return new RemoteWebDriver(gridUrl, options);
+        RemoteWebDriver remoteWebDriver = new RemoteWebDriver(gridUrl, options);
+        remoteWebDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitTime));
+        return remoteWebDriver;
     }
 
     @Bean
@@ -45,6 +51,8 @@ public class RemoteWebDriverFactory {
                                   List<String> driverOptions) {
         FirefoxOptions options = new FirefoxOptions();
         driverOptions.forEach(options::addArguments);
-        return new RemoteWebDriver(gridUrl, options);
+        RemoteWebDriver remoteWebDriver = new RemoteWebDriver(gridUrl, options);
+        remoteWebDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitTime));
+        return remoteWebDriver;
     }
 }

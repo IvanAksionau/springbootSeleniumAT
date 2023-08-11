@@ -5,10 +5,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.time.Duration;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 @Page
-public class CheckoutPage extends BasePage {
+public class ShippingPage extends BasePage {
 
     @FindBy(xpath = "//div[contains(@class, 'checkout ')]")
     private WebElement checkoutPageContent;
@@ -45,11 +47,24 @@ public class CheckoutPage extends BasePage {
         addressInput.sendKeys(address);
         cityDropDown.click();
         webDriver.findElement(
-                By.xpath("//option[contains(text(),'" + city + "')]")).click();
+                By.xpath("//option[contains(text(),'" + getRandomCityValue() + "')]")).click();
         countryCodeDropDown.click();
+
         webDriver.findElement(
                 By.xpath("//span[contains(text(),'" + phoneCode + "')]")).click();
         phoneInput.sendKeys(phoneNumber);
+    }
+
+    private String getRandomCityValue() {
+        List<WebElement> elements = webDriver.findElements(By.xpath(
+                "//select[@class='field__input city-selector']/option"));
+        Collections.reverse(elements);
+
+        String[] cityList = elements.stream().map(WebElement::getText).limit(10)
+                .toList().toArray(new String[0]);
+
+        int index = new Random().nextInt(cityList.length);
+        return cityList[index].replace("'", "");
     }
 
     public void submitCheckOutForm() {
@@ -58,8 +73,6 @@ public class CheckoutPage extends BasePage {
 
     @Override
     public boolean isDisplayed() {
-        return webDriverWait.withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(3))
-                .until((d) -> checkoutPageContent.isEnabled());
+        return fluentWait.until((d) -> checkoutPageContent.isEnabled());
     }
 }

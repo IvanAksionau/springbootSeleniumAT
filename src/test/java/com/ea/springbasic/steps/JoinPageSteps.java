@@ -1,6 +1,7 @@
 package com.ea.springbasic.steps;
 
 import com.ea.springbasic.pages.JoinPage;
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,6 +17,10 @@ public class JoinPageSteps extends BasePageSteps {
 
     @When("I fill in and submit register new account form")
     public void iFillInAndSubmitNewAccountForm() {
-        joinPage.submitJoinForm(testUserDetails.getUserDetails().getUserEmail(), testUserDetails.getUserDetails().getUserPassword(), testUserDetails.getUserDetails().getFirstName(), testUserDetails.getUserDetails().getLastName());
+        joinPage.submitJoinForm(
+                new Faker().internet().emailAddress(),
+                testUserDetails.getUserDetails().getLastName(),
+                testUserDetails.getUserDetails().getFirstName(),
+                testUserDetails.getUserDetails().getUserPassword());
     }
 }

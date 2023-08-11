@@ -5,13 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 @Page
-public class AccountPage extends BasePage {
+public class OrderPage extends BasePage {
 
-    @FindBy(id = "AccountHeroImage")
-    private WebElement accountWelcomeImage;
+    @FindBy(xpath = "//h3[contains(@class, 'order-number')]")
+    private WebElement orderNumber;
 
     @Override
     public boolean isDisplayed() {
-        return fluentWait.until((d) -> accountWelcomeImage.isDisplayed());
+        return fluentWait.until((d) -> !orderNumber.getText().isEmpty());
     }
 }

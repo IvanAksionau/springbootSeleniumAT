@@ -1,7 +1,7 @@
 package com.ea.springbasic.steps;
 
 import com.ea.springbasic.models.TestUserDetails;
-import com.ea.springbasic.pages.VerifyPhoneNumberPage;
+import com.ea.springbasic.pages.VerifyPhoneNumberPopupPage;
 import com.ea.springbasic.util.SMSReader;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class VerifyPhoneNumberPageSteps extends BasePageSteps {
 
     @Autowired
-    private VerifyPhoneNumberPage verifyPhoneNumberPage;
+    private VerifyPhoneNumberPopupPage verifyPhoneNumberPopupPage;
 
     @Autowired
     private TestUserDetails testUserDetails;
@@ -20,21 +20,22 @@ public class VerifyPhoneNumberPageSteps extends BasePageSteps {
 
     @Then("I check the phone number is not verified popup is displayed")
     public void ICheckPhoneNumberNotVerifiedIsdDisplayed() {
-        verifyPhoneNumberPage.isDisplayed();
+        verifyPhoneNumberPopupPage.isDisplayed();
     }
 
     @When("I click send code button")
     public void iClickSendCodeButton() {
-        verifyPhoneNumberPage.clickSendCodeButton();
+        verifyPhoneNumberPopupPage.clickSendCodeButton();
     }
 
     @When("I type verify code value")
     public void iTypeVerifyCodeValue() {
-        verifyPhoneNumberPage.typeVerifyCode(smsReader.extractVerificationCode());
+        verifyPhoneNumberPopupPage.typeVerifyCode(smsReader.extractVerificationCode());
     }
 
     @When("I click verify code button")
     public void iClickVerifyCodeButton() {
-        verifyPhoneNumberPage.clickVerifyCodeButton();
+        verifyPhoneNumberPopupPage.clickVerifyCodeButton();
+        System.out.println("dsfds");
     }
 }

@@ -1,9 +1,10 @@
-package com.ea.springbasic.steps;
+package com.ea.springbasic.hook;
 
 import com.ea.springbasic.models.TestUserDetails;
 import com.ea.springbasic.models.UserDetails;
 import com.ea.springbasic.pages.ComingSoonPage;
 import com.ea.springbasic.util.ScreenShotUtil;
+import com.github.javafaker.Faker;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -28,6 +29,12 @@ public class Hooks {
     @Value("${user.password}")
     private String userPassword;
 
+    @Value("${user.phone.code}")
+    private String phoneCode;
+
+    @Value("${user.phone.number}")
+    private String phoneNumber;
+
     @Value("${app.system.password}")
     private String systemPassword;
 
@@ -49,9 +56,14 @@ public class Hooks {
 
     @Before
     public void setup(Scenario scenario) {
-        testUserDetails.setUserDetails(new UserDetails(userEmail, userPassword));
+        Faker faker = new Faker();
+        testUserDetails.setUserDetails(new UserDetails(
+                userEmail, userPassword, faker.name().firstName(), faker.name().lastName(),
+                faker.address().streetAddress(), faker.address().city(), phoneCode, phoneNumber));
+
         webDriver.navigate().to(appUrl);
         webDriver.manage().window().maximize();
+
         if (env.equals("dev")) {
             comingSoonPage.clickActivatePasswordInput();
             comingSoonPage.login(systemPassword);

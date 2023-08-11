@@ -1,14 +1,13 @@
 package com.ea.springbasic.pages;
 
 import com.ea.springbasic.pages.annotation.Page;
-import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.time.Duration;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Page
-public class VerifyPhoneNumberPage extends BasePage {
+public class VerifyPhoneNumberPopupPage extends BasePage {
 
     @FindBy(xpath = "//*[contains(@class, 'not-verified')]//h2[contains(@class, 'title')]")
     private WebElement verifyPhoneNumberPageTitle;
@@ -23,8 +22,10 @@ public class VerifyPhoneNumberPage extends BasePage {
     private WebElement verifyCodeInput;
 
     public void clickSendCodeButton() {
+        fluentWait.until(ExpectedConditions.elementToBeClickable(sendCodeButton));
         sendCodeButton.click();
     }
+
     public void typeVerifyCode(String code) {
         verifyCodeInput.sendKeys(code);
     }
@@ -35,8 +36,8 @@ public class VerifyPhoneNumberPage extends BasePage {
 
     @Override
     public boolean isDisplayed() {
-        return webDriverWait.withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(3))
-                .until((d) -> verifyPhoneNumberPageTitle.isEnabled());
+        fluentWait.ignoring(NoSuchElementException.class)
+                .until(ExpectedConditions.visibilityOf(verifyPhoneNumberPageTitle));
+        return verifyPhoneNumberPageTitle.isEnabled();
     }
 }

@@ -29,8 +29,6 @@ public class ComingSoonPage extends BasePage {
 
     @Override
     public boolean isDisplayed() {
-        return webDriverWait.withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(3))
-                .until((d) -> enterUsingPasswordButton.isEnabled());
+        return fluentWait.until((d) -> enterUsingPasswordButton.isEnabled());
     }
 }

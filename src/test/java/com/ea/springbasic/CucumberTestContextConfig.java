@@ -1,4 +1,4 @@
-package com.ea.springbasic.steps;
+package com.ea.springbasic;
 
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;

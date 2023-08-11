@@ -4,8 +4,6 @@ import com.ea.springbasic.pages.annotation.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.time.Duration;
-
 @Page
 public class ProductPage extends BasePage {
 
@@ -25,8 +23,6 @@ public class ProductPage extends BasePage {
 
     @Override
     public boolean isDisplayed() {
-        return webDriverWait.withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(3))
-                .until((d) -> productTitle.isEnabled());
+        return fluentWait.until((d) -> productTitle.isEnabled());
     }
 }
