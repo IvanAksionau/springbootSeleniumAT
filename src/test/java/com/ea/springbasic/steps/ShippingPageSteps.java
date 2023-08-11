@@ -13,7 +13,7 @@ public class ShippingPageSteps extends BasePageSteps {
 
     @And("I check the shippingPage is displayed")
     public void iCheckHomePageIsDisplayed() {
-        Assert.assertTrue(shippingPage.isDisplayed());
+        Assert.assertTrue(shippingPage.isDisplayed(), "Shipping page is displayed");
     }
 
     @When("I fill the checkout form")

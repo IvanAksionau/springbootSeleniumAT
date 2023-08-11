@@ -6,6 +6,7 @@ import com.ea.springbasic.util.SMSReader;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.testng.Assert;
 
 public class VerifyPhoneNumberPageSteps extends BasePageSteps {
 
@@ -20,7 +21,8 @@ public class VerifyPhoneNumberPageSteps extends BasePageSteps {
 
     @Then("I check the phone number is not verified popup is displayed")
     public void ICheckPhoneNumberNotVerifiedIsdDisplayed() {
-        verifyPhoneNumberPopupPage.isDisplayed();
+        Assert.assertTrue(verifyPhoneNumberPopupPage.isDisplayed(),
+                "VerifyPhoneNumberPopup page is displayed");
     }
 
     @When("I click send code button")

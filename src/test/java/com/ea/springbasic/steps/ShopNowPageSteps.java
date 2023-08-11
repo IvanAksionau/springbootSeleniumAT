@@ -23,6 +23,6 @@ public class ShopNowPageSteps extends BasePageSteps {
 
     @When("I check the shop now page is displayed")
     public void ICheckShopNowPageIsdDisplayed() {
-        shopNowPage.isDisplayed();
+        Assert.assertTrue(shopNowPage.isDisplayed(), "ShopNow page is displayed");
     }
 }

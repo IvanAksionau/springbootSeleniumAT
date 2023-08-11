@@ -13,7 +13,7 @@ public class HomePageSteps extends BasePageSteps {
 
     @And("I check the home page is displayed")
     public void iCheckHomePageIsDisplayed() {
-        Assert.assertTrue(homePage.isDisplayed());
+        Assert.assertTrue(homePage.isDisplayed(), "Home page is displayed");
     }
 
     @When("I click login account button")
