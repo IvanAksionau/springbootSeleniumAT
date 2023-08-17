@@ -65,7 +65,6 @@ public class Hooks {
         webDriver.manage().window().maximize();
 
         if (env.equals("dev")) {
-            comingSoonPage.clickActivatePasswordInput();
             comingSoonPage.login(systemPassword);
         }
     }

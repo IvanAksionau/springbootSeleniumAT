@@ -17,11 +17,17 @@ public class ComingSoonPage extends BasePage {
     @FindBy(id = "Password")
     private WebElement passwordInput;
 
+    @FindBy(xpath = "//button[contains(text(),'Accept all')]")
+    private WebElement acceptCookiesButton;
+
     public void clickActivatePasswordInput() {
         enterUsingPasswordButton.click();
     }
 
     public void login(String password) {
+        fluentWait.until(ExpectedConditions.elementToBeClickable(acceptCookiesButton));
+        acceptCookiesButton.click();
+        enterUsingPasswordButton.click();
         webDriverWait.until(ExpectedConditions.elementToBeClickable(passwordInput));
         passwordInput.sendKeys(password);
         passwordInput.sendKeys(Keys.ENTER);

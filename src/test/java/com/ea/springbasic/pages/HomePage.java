@@ -17,9 +17,6 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@href='/collections/apparel']")
     private WebElement shopNowButton;
 
-    @FindBy(xpath = "//button[contains(text(),'Accept all')]")
-    private WebElement acceptCookiesButton;
-
     public void clickLoginAccountButton() {
         loginAccountButton.click();
     }
@@ -30,8 +27,6 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isDisplayed() {
-        fluentWait.until(ExpectedConditions.elementToBeClickable(acceptCookiesButton));
-        acceptCookiesButton.click();
         return fluentWait.until((d) -> defaultLogo.isEnabled());
     }
 }

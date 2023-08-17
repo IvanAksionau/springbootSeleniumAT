@@ -19,10 +19,14 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
 
+    @FindBy(xpath = "//button//span[@class='show']")
+    private WebElement showButton;
+
     public void login(String email, String password) {
         customerEmailInput.sendKeys(email);
         this.passwordInput.sendKeys(password);
         fluentWait.until((d) -> submitButton.getAttribute("aria-disabled").equals("false"));
+        showButton.click();
         submitButton.click();
     }
 
