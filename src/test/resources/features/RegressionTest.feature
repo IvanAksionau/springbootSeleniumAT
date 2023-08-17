@@ -1,5 +1,14 @@
 Feature: Regression test suite
-  This feature checks the order manipulation functionality
+  This feature checks the app functionality
+
+  @RegressionTest
+  Scenario: Register new user
+    Then I check the home page is displayed
+
+    When I click login account button
+    And I open register new account page
+    And I fill in and submit register new account form
+    Then I check the user account page is displayed
 
   @RegressionTest
   Scenario: Create and order as not registered user with cash on delivery payment method

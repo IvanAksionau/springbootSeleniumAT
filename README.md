@@ -11,7 +11,7 @@
 * Installed Docker
 * Installed Docker-compose
 * Installed Appium ADB
-* Android mobile device connected to PC ()
+* Android mobile device connected to PC
 
 ### Framework features:
 
@@ -26,8 +26,8 @@
 
 ### Test execution:
 
-- Run command ```mvn clean install -D"cucumber.options=--tags @SmokeTest"``` - will execute only tests tagged as @SmokeTest.
-- Run command ```mvn clean install -D"driver.options=--headless,--remote-allow-origins=*``` - will start tests on local chrome driver in a headless mode.
+- Run command ```mvn clean install -D"cucumber.filter.tags=--tags @SmokeTest"``` - will execute only tests tagged as @SmokeTest.
+- Run command ```mvn clean install -D"driver.options=--headless,--remote-allow-origins=*"``` - will start tests on local chrome driver in a headless mode.
 - Run directly any ...xml file located in the root folder.(ex. 'smoke-module_cucumber_runner.xml')
 - Various env testing from setup of ```mvn clean install -D"driver.options=--headless,--remote-allow-origins=*" -D"spring.profiles.active=qa"```.
 

@@ -23,7 +23,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn clean install -D"app.env=dev" -D"app.url=https://dev-kayanee.myshopify.com/" -D"driver.options=--headless,--remote-allow-origins=*" --file pom.xml
+        run: mvn clean install -D"user.email=${{ secrets.TEST_USEREMAIL }}" -D"user.password=${{ secrets.TEST_USER_PASSWORD }}" -D"app.system.password=${{ secrets.TEST_SYSTEM_PASSWORD }}" -D"cucumber.filter.tags=@SmokeTest" -D"driver.options=--headless,--remote-allow-origins=*" --file pom.xml
 
       - uses: deblockt/cucumber-report-annotations-action@v1.7
         with:
