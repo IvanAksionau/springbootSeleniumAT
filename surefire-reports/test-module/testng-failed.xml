@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="instances" data-provider-thread-count="20" name="Failed suite [test-module]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" parallel="instances" name="E2E Test of EAApp(failed)" verbose="0">
+    <classes>
+      <class name="com.ea.springbasic.runner.TestRunner">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="runScenario" invocation-numbers="0"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- com.ea.springbasic.runner.TestRunner -->
+    </classes>
+  </test> <!-- E2E Test of EAApp(failed) -->
+</suite> <!-- Failed suite [test-module] -->
