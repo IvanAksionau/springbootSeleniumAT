@@ -66,4 +66,4 @@
 - Selenium Grid https://www.browserstack.com/guide/selenium-grid-tutorial
 - Selenium Grid https://www.selenium.dev/documentation/en/grid/
 - Configure android device connection https://developer.android.com/studio/debug/dev-options.html
-- Test cards https://www.checkout.com/docs/developer-resources/testing/test-cards 
+- Test cards https://www.checkout.com/docs/developer-resources/testing/test-cards
