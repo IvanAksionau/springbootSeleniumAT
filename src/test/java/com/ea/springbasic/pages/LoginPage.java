@@ -32,7 +32,6 @@ public class LoginPage extends BasePage {
         customerEmailInput.sendKeys(email);
         this.passwordInput.sendKeys(password);
         fluentWait.until((d) -> submitButton.getAttribute("aria-disabled").equals("false"));
-        showButton.click();
         submitButton.click();
     }
 
