@@ -3,6 +3,7 @@ package com.ea.springbasic.pages;
 import com.ea.springbasic.pages.annotation.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Page
 public class LoginPage extends BasePage {
@@ -22,7 +23,12 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//button//span[@class='show']")
     private WebElement showButton;
 
+    @FindBy(xpath = "//button[contains(text(),'Accept all')]")
+    private WebElement acceptCookiesButton;
+
     public void login(String email, String password) {
+        fluentWait.until(ExpectedConditions.elementToBeClickable(acceptCookiesButton));
+        acceptCookiesButton.click();
         customerEmailInput.sendKeys(email);
         this.passwordInput.sendKeys(password);
         fluentWait.until((d) -> submitButton.getAttribute("aria-disabled").equals("false"));
