@@ -1,6 +1,10 @@
 package com.ea.springbasic.steps;
 
+import com.ea.springbasic.models.TestUserDetails;
+import com.ea.springbasic.models.UserDetails;
+import com.ea.springbasic.pages.ComingSoonPage;
 import com.ea.springbasic.util.ScreenShotUtil;
+import com.github.javafaker.Faker;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -16,19 +20,53 @@ import org.springframework.context.annotation.Lazy;
  */
 public class Hooks {
 
+    @Value("${app.url}")
+    private String appUrl;
+
+    @Value("${user.email}")
+    private String userEmail;
+
+    @Value("${user.password}")
+    private String userPassword;
+
+    @Value("${user.phone.code}")
+    private String phoneCode;
+
+    @Value("${user.phone.number}")
+    private String phoneNumber;
+
+    @Value("${app.system.password}")
+    private String systemPassword;
+
+    @Value("${app.env}")
+    private String env;
+
     @Autowired
     private WebDriver webDriver;
 
-    @Value("${app.url}")
-    private String appUrl;
+    @Autowired
+    private ComingSoonPage comingSoonPage;
 
     @Lazy
     @Autowired
     private ScreenShotUtil screenShotUtil;
 
+    @Autowired
+    private TestUserDetails testUserDetails;
+
     @Before
     public void setup(Scenario scenario) {
+        Faker faker = new Faker();
+        testUserDetails.setUserDetails(new UserDetails(
+                userEmail, userPassword, faker.name().firstName(), faker.name().lastName(),
+                faker.address().streetAddress(), faker.address().city(), phoneCode, phoneNumber));
+
         webDriver.navigate().to(appUrl);
+        webDriver.manage().window().maximize();
+
+        if (env.equals("dev")) {
+            comingSoonPage.login(systemPassword);
+        }
     }
 
     @After

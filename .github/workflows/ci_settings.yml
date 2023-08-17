@@ -23,7 +23,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn clean verify -D"driver.options=--headless,--remote-allow-origins=*" --file pom.xml
+        run: mvn clean install -D"user.email=${{ secrets.TEST_USEREMAIL }}" -D"user.password=${{ secrets.TEST_USER_PASSWORD }}" -D"app.system.password=${{ secrets.TEST_SYSTEM_PASSWORD }}" -D"cucumber.filter.tags=@SmokeTest" -D"driver.options=--headless,--remote-allow-origins=*" --file pom.xml
 
       - uses: deblockt/cucumber-report-annotations-action@v1.7
         with:
@@ -34,8 +34,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/cucumber-html-reports
-      #          publish_dir: ./target
+#          publish_dir: ./target/cucumber-html-reports
+          publish_dir: ./target
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
       - name: Update dependency graph

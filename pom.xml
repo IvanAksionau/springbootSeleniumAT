@@ -25,6 +25,7 @@
         <cucumber-spring.version>7.12.1</cucumber-spring.version>
         <maven-cucumber-reporting.version>5.7.5</maven-cucumber-reporting.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <javafaker.version>1.0.2</javafaker.version>
     </properties>
 
     <version>0.0.1-SNAPSHOT</version>
@@ -74,6 +75,11 @@
             <artifactId>lombok</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -87,19 +93,16 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
                         <suiteXmlFile>smoke-module_cucumber_runner.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <testFailureIgnore>true</testFailureIgnore>
                     <properties>
                         <property>
                             <name>dataproviderthreadcount</name>
                             <value>20</value>
                         </property>
                     </properties>
-                    <!--                    <includes>-->
-                    <!--                        <include>com.ea.springbasic.runner.TestRunner</include>-->
-                    <!--                    </includes>-->
                 </configuration>
             </plugin>
             <plugin>

@@ -1,5 +1,6 @@
 package com.ea.springbasic.driver;
 
+import com.ea.springbasic.pages.AccountPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.*;
 
+import java.time.Duration;
 import java.util.List;
 
 /**
@@ -19,7 +21,7 @@ import java.util.List;
  * by using @Scope("driverScope") annotation, which creates a new instance of webdriver for each thread.
  * <p>
  * Also, to support parallel test execution we add @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) annotation
- * for all page object classes. See ex. {@link com.ea.springbasic.pages.HomePage} class.
+ * for all page object classes. See ex. {@link AccountPage} class.
  */
 @Lazy
 @Configuration
@@ -29,12 +31,17 @@ public class WebDriverFactory {
     @Value("${driver.options:--remote-allow-origins=*}")
     public List<String> driverOptions;
 
+    @Value("${implicit.wait.time}")
+    public int implicitWaitTime;
+
     @Bean
     @Scope("driverScope")
     @ConditionalOnProperty(name = "browser", havingValue = "chrome")
     WebDriver chromeDriver(ChromeOptions chromeOptions) {
         WebDriverManager.chromedriver().setup();
-        return new ChromeDriver(chromeOptions);
+        ChromeDriver chromeDriver = new ChromeDriver(chromeOptions);
+        chromeDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitTime));
+        return chromeDriver;
     }
 
     @Bean
@@ -42,7 +49,9 @@ public class WebDriverFactory {
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     WebDriver fireFoxDriver(FirefoxOptions firefoxOptions) {
         WebDriverManager.firefoxdriver().setup();
-        return new FirefoxDriver(firefoxOptions);
+        FirefoxDriver firefoxDriver = new FirefoxDriver(firefoxOptions);
+        firefoxDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(implicitWaitTime));
+        return firefoxDriver;
     }
 
     @Bean

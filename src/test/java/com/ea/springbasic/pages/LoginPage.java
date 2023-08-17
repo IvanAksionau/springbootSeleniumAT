@@ -3,37 +3,40 @@ package com.ea.springbasic.pages;
 import com.ea.springbasic.pages.annotation.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
-
-import java.time.Duration;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Page
 public class LoginPage extends BasePage {
 
-    @FindBy(how = How.NAME, using = "UserName")
-    public WebElement txtUserName;
+    @FindBy(id = "CustomerEmail")
+    private WebElement customerEmailInput;
 
-    @FindBy(how = How.NAME, using = "Password")
-    public WebElement txtPassword;
+    @FindBy(id = "pass")
+    private WebElement passwordInput;
 
-    @FindBy(how = How.CSS, using = ".btn-default")
-    public WebElement btnLogin;
+    @FindBy(xpath = "//div[@class='login-tab']//*[@id='login']")
+    private WebElement loginFormActivateLabel;
 
-    public void login(String userName, String password) {
-        txtUserName.sendKeys(userName);
-        txtPassword.sendKeys(password);
-        System.out.println("UserName and password: " + userName + "---" + password);
-    }
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement submitButton;
 
-    public HomePage clickLogin() {
-        btnLogin.click();
-        return new HomePage();
+    @FindBy(xpath = "//button//span[@class='show']")
+    private WebElement showButton;
+
+    @FindBy(xpath = "//button[contains(text(),'Accept all')]")
+    private WebElement acceptCookiesButton;
+
+    public void login(String email, String password) {
+        fluentWait.until(ExpectedConditions.elementToBeClickable(acceptCookiesButton));
+        acceptCookiesButton.click();
+        customerEmailInput.sendKeys(email);
+        this.passwordInput.sendKeys(password);
+        fluentWait.until((d) -> submitButton.getAttribute("aria-disabled").equals("false"));
+        submitButton.click();
     }
 
     @Override
     public boolean isDisplayed() {
-        return webDriverWait.withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(3))
-                .until((d) -> btnLogin.isDisplayed());
+        return fluentWait.until((d) -> loginFormActivateLabel.getAttribute("class").contains("active"));
     }
 }

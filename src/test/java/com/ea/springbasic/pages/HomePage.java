@@ -3,37 +3,30 @@ package com.ea.springbasic.pages;
 import com.ea.springbasic.pages.annotation.Page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Page
 public class HomePage extends BasePage {
 
-    @FindBy(how = How.LINK_TEXT, using = "Login")
-    public WebElement lnkLogin;
+    @FindBy(id = "default_logo")
+    private WebElement defaultLogo;
 
-    @FindBy(how = How.LINK_TEXT, using = "Employee List")
-    public WebElement lnkEmployeeList;
+    @FindBy(xpath = "//a[@href='/account/login']")
+    private WebElement loginAccountButton;
 
-    @FindBy(how = How.LINK_TEXT, using = "Employee Details")
-    WebElement lnkEmployeeDetails;
+    @FindBy(xpath = "//a[@href='/collections/apparel']")
+    private WebElement shopNowButton;
 
-    public LoginPage clickLogin() {
-        lnkLogin.click();
-        return new LoginPage();
+    public void clickLoginAccountButton() {
+        loginAccountButton.click();
     }
 
-    public void clickEmployeeList() {
-        lnkEmployeeList.click();
-    }
-
-    public boolean isEmployeeDetailsExist() {
-        return lnkEmployeeDetails.isDisplayed();
+    public void clickShopNowButton() {
+        shopNowButton.click();
     }
 
     @Override
     public boolean isDisplayed() {
-        webDriverWait.until(ExpectedConditions.visibilityOf(lnkLogin));
-        return webDriverWait.until((d) -> lnkLogin.isDisplayed());
+        return fluentWait.until((d) -> defaultLogo.isEnabled());
     }
 }
