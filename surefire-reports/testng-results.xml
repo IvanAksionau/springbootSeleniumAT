@@ -2,15 +2,15 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-08-17T19:16:41 UTC" name="test-module" finished-at="2023-08-17T19:17:18 UTC" duration-ms="36908">
+  <suite started-at="2023-08-17T19:21:24 UTC" name="test-module" finished-at="2023-08-17T19:21:55 UTC" duration-ms="30895">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.ea.springbasic.runner.TestRunner@22555ebf]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2023-08-17T19:16:41 UTC" name="E2E Test of EAApp" finished-at="2023-08-17T19:17:18 UTC" duration-ms="36908">
+    <test started-at="2023-08-17T19:21:24 UTC" name="E2E Test of EAApp" finished-at="2023-08-17T19:21:55 UTC" duration-ms="30895">
       <class name="com.ea.springbasic.runner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.ea.springbasic.runner.TestRunner@22555ebf]" started-at="2023-08-17T19:16:41 UTC" name="setUpClass" finished-at="2023-08-17T19:16:41 UTC" duration-ms="309" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.ea.springbasic.runner.TestRunner@22555ebf]" started-at="2023-08-17T19:21:24 UTC" name="setUpClass" finished-at="2023-08-17T19:21:24 UTC" duration-ms="281" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -21,7 +21,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.ea.springbasic.runner.TestRunner@22555ebf]" started-at="2023-08-17T19:16:41 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-08-17T19:17:17 UTC" duration-ms="36292" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.ea.springbasic.runner.TestRunner@22555ebf]" started-at="2023-08-17T19:21:24 UTC" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2023-08-17T19:21:54 UTC" duration-ms="30169" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -37,7 +37,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.ea.springbasic.runner.TestRunner@22555ebf]" started-at="2023-08-17T19:17:17 UTC" name="tearDownClass" finished-at="2023-08-17T19:17:18 UTC" duration-ms="260" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.ea.springbasic.runner.TestRunner@22555ebf]" started-at="2023-08-17T19:21:54 UTC" name="tearDownClass" finished-at="2023-08-17T19:21:55 UTC" duration-ms="386" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
